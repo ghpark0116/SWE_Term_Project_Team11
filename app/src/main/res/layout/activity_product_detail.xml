@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/chat_button">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 헤더 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- 뒤로 가기 아이콘 -->
+                <ImageView
+                    android:id="@+id/back_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/left" />
+
+                <!-- 상품 정보 텍스트 -->
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="상품 정보"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- 상품 사진 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="상품 이미지" />
+
+                <ImageView
+                    android:id="@+id/prev_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/left" />
+
+                <ImageView
+                    android:id="@+id/next_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/right" />
+            </RelativeLayout>
+
+            <!-- 프로필 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_launcher_background"
+                    android:contentDescription="프로필 이미지" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+
+                    <TextView
+                        android:id="@+id/profile_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스꾸스꾸"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_department"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="식품생명공학과 - 자연과학캠퍼스"
+                        android:textSize="14sp"
+                        android:textColor="#666666" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 상품 정보 -->
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:text="실험복 싸게 가져가실 분!"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/product_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="2024.11.10 11:50"
+                android:textSize="14sp"
+                android:textColor="#888888" />
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="7,000원"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+
+            <!-- 거래 정보 -->
+            <TextView
+                android:id="@+id/transaction_method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="희망 거래 방식: 대면 거래"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/transaction_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="희망 거래 장소: 자연과학캠퍼스 제2공학관 앞"
+                android:textSize="14sp" />
+
+            <!-- 상품 설명 -->
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="상품 상세 설명"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 채팅방 생성 버튼 -->
+    <Button
+        android:id="@+id/chat_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="+ 채팅하기"
+        android:textSize="18sp"
+        android:backgroundTint="@color/teal_700"
+        android:textColor="@color/white" />
+</RelativeLayout>
+

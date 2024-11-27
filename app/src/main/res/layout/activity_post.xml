@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 상단 헤더 -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/left"
+            android:contentDescription="뒤로가기" />
+
+        <!-- 제목 -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="상품 판매하기"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+    <!-- 스크롤 가능한 내용 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/submit_button"
+        android:layout_below="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 사진 업로드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="※ 상품 이미지는 최대 5개까지 등록 가능합니다."
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="8dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/image_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- 사진 추가 버튼 -->
+                    <ImageView
+                        android:id="@+id/add_image_button"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/image_upload"
+                        android:contentDescription="Add Image"
+                        android:layout_marginEnd="8dp"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+                <!-- 추후 사진은 여기에 추가 -->
+            </HorizontalScrollView>
+
+            <!-- 제목 입력 -->
+            <EditText
+                android:id="@+id/product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="제목"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:inputType="text" />
+
+            <!-- 가격 입력 -->
+            <EditText
+                android:id="@+id/product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="가격"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:inputType="number" />
+
+            <!-- 카테고리 선택 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="상품 카테고리"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:entries="@array/product_categories"/>
+
+            <!-- 희망 거래 방식 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="희망 거래 방식"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <RadioGroup
+                    android:id="@+id/transaction_method_group"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/face_to_face"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="대면" />
+
+                    <RadioButton
+                        android:id="@+id/non_face_to_face"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="비대면"
+                        android:layout_marginStart="8dp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- 거래 장소 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="희망 거래 장소"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <RadioGroup
+                    android:id="@+id/transaction_location_group"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/science_campus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="자연과학캠퍼스" />
+
+                    <RadioButton
+                        android:id="@+id/humanities_campus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="인문사회캠퍼스"
+                        android:layout_marginStart="8dp" />
+                </RadioGroup>
+            </LinearLayout>
+            <!-- 상품 상태 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="상품 상태"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <RadioGroup
+                    android:id="@+id/product_state_group"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/state_bad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="나쁨" />
+
+                    <RadioButton
+                        android:id="@+id/state_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="보통"
+                        android:layout_marginStart="8dp" />
+
+                    <RadioButton
+                        android:id="@+id/state_good"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="좋음"
+                        android:layout_marginStart="8dp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- 상품 상세 설명 -->
+            <EditText
+                android:id="@+id/product_description"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:hint="상품 상세 설명"
+                android:inputType="textMultiLine"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 작성 완료 버튼 -->
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="작성 완료"
+        android:textSize="18sp"
+        android:backgroundTint="@color/green_1"
+        android:textColor="@color/white" />
+</RelativeLayout>
